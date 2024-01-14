@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function PostList() {
+export default function PostListPage() {
   return <div>PostList</div>;
 }
