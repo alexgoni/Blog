@@ -1,8 +1,8 @@
 import React from "react";
 import Profile from "components/Profile";
-import Header from "components/Header";
-import Footer from "components/Footer";
-import PostList from "components/PostList";
+import Header from "components/layout/Header";
+import Footer from "components/layout/Footer";
+import PostList from "components/post/PostList";
 
 export default function ProfilePage() {
   return (

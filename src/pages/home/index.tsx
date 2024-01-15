@@ -1,7 +1,7 @@
-import Header from "components/Header";
-import Footer from "components/Footer";
-import PostList from "components/PostList";
-import Carousel from "components/Carousel";
+import Header from "components/layout/Header";
+import Footer from "components/layout/Footer";
+import PostList from "components/post/PostList";
+import Carousel from "components/layout/Carousel";
 
 export default function Home() {
   return (
