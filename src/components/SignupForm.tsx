@@ -16,9 +16,9 @@ export default function SignupForm() {
       const auth = getAuth(app);
       await createUserWithEmailAndPassword(auth, email, password);
       toast.success("회원가입에 성공했습니다.");
-    } catch (e: any) {
-      console.log(e);
-      toast.error(e?.code);
+    } catch (error: any) {
+      console.log(error);
+      toast.error(error?.code);
     }
   };
 
@@ -74,6 +74,7 @@ export default function SignupForm() {
             type="email"
             name="email"
             id="email"
+            value={email}
             onChange={onChange}
             required
           />
@@ -84,6 +85,7 @@ export default function SignupForm() {
             type="password"
             name="password"
             id="password"
+            value={password}
             onChange={onChange}
             required
           />
@@ -94,6 +96,7 @@ export default function SignupForm() {
             type="password"
             name="password-confirm"
             id="password-confirm"
+            value={passwordConfirm}
             onChange={onChange}
             required
           />
