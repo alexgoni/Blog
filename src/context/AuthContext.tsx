@@ -10,6 +10,8 @@ const AuthContext = createContext({
   user: null as User | null,
 });
 
+export default AuthContext;
+
 export const AuthContextProvider = ({ children }: AuthProps) => {
   const auth = getAuth(app);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -26,5 +28,3 @@ export const AuthContextProvider = ({ children }: AuthProps) => {
     </AuthContext.Provider>
   );
 };
-
-export default AuthContext;

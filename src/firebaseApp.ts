@@ -18,8 +18,3 @@ try {
 } catch (e) {
   app = initializeApp(firebaseConfig, "app");
 }
-
-// Initialize Firebase
-const firebase = initializeApp(firebaseConfig);
-
-export default firebase;
