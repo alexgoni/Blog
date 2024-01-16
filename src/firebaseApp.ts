@@ -1,5 +1,6 @@
 import { initializeApp, FirebaseApp, getApp } from "firebase/app";
 import "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 export let app: FirebaseApp;
 
@@ -18,3 +19,5 @@ try {
 } catch (e) {
   app = initializeApp(firebaseConfig, "app");
 }
+
+export const db = getFirestore(app);
