@@ -139,6 +139,14 @@ footer a {
   cursor: pointer;
 }
 
+.post__no-post {
+  padding: 24px;
+  text-align: center;
+  color: gray;
+  border: 1px solid #f2f2f2;
+  border-radius: 20px;
+}
+
 .header__tab a:focus,
 .header__tab a:hover,
 .post__edit:focus,
@@ -173,6 +181,10 @@ footer a:hover {
 
 .post__detail .post__content {
   padding: 20px 0;
+}
+
+.post__text--pre-wrap {
+  white-space: pre-wrap;
 }
 
 /* profile */
