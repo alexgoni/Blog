@@ -9,7 +9,7 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "firebaseApp";
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -18,7 +18,7 @@ interface PostListProps {
   defaultTab?: TabType;
 }
 
-type TabType = "all" | "my";
+type TabType = "all" | "my" | CategoryType;
 
 export interface PostProps {
   id?: string;
@@ -29,7 +29,16 @@ export interface PostProps {
   createdAt: string;
   updatedAt?: string;
   uid: string;
+  category?: CategoryType;
 }
+
+export type CategoryType = "Frontend" | "Backend" | "Web" | "Native";
+export const CATEGORIES: CategoryType[] = [
+  "Frontend",
+  "Backend",
+  "Web",
+  "Native",
+];
 
 export default function PostList({
   hasNavigation = true,
@@ -50,8 +59,14 @@ export default function PostList({
         where("uid", "==", user.uid),
         orderBy("createdAt", "desc")
       );
-    } else {
+    } else if (activeTab === "all") {
       postsQuery = query(postsRef, orderBy("createdAt", "desc"));
+    } else {
+      postsQuery = query(
+        postsRef,
+        where("category", "==", activeTab),
+        orderBy("createdAt", "desc")
+      );
     }
 
     const datas = await getDocs(postsQuery);
@@ -93,6 +108,18 @@ export default function PostList({
           >
             나의 글
           </div>
+          {CATEGORIES?.map((category) => (
+            <div
+              key={category}
+              role="presentation"
+              onClick={() => setActiveTab(category)}
+              className={
+                activeTab === category ? "post__navigation--active" : ""
+              }
+            >
+              {category}
+            </div>
+          ))}
         </div>
       )}
 
