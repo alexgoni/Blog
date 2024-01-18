@@ -1,4 +1,4 @@
-import LoginForm from "components/LoginForm";
+import LoginForm from "components/user/LoginForm";
 import Header from "components/layout/Header";
 import React from "react";
 

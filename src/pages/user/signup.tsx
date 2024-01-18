@@ -1,4 +1,4 @@
-import SignupForm from "components/SignupForm";
+import SignupForm from "components/user/SignupForm";
 import Header from "components/layout/Header";
 import React from "react";
 
